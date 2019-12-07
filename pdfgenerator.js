@@ -4,29 +4,15 @@ const util = require('util')
 const Handlebars = require('handlebars');
 const puppeteer = require('puppeteer');
 
+const data = require('./data.json')
+
 function commaFormat(number) {
-	return number.replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace(/\B(?=(\d{2})+(?!\d))/g, ".");
+	return (number/100).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 
 (async function() {
   try {
-
-    const data = {
-      total: '100',
-      income: [
-        {account: "Sales", amount: "1000000"},
-        {account: "Other Income", amount: "12000"}
-      ],
-      expense: [
-        {account: "Operations", amount: "100000"},
-        {account: "Sales and Marketing", amount: "200000"},
-        {account: "Research and Development", amount: "120000"},
-        {account: "Depreciation and Amortisation", amount: "150000"},
-        {account: "Stuff", amount: "90000"},
-        {account: "Useless Expense", amount: "10000"},
-      ],
-    }
 
     const browser = await puppeteer.launch();
     const page = await browser.newPage();

@@ -286,6 +286,11 @@
     p {
       color: #51545E;
     }
+
+		.blank_row {
+				height: 20px !important; /* overwrites any other rules */
+				background-color: #FFFFFF;
+		}
     
     .email-wrapper {
       width: 100%;
@@ -469,7 +474,9 @@
                                     <p class="f-fallback purchase_total">{{commaFormat total}}</p>
                                   </td>
                                 </tr>
-                                <tr> <td></td></tr>
+																<tr class="blank_row">
+																		<td colspan="3"></td>
+																</tr>
                                 {{#each expense}}
                                 <tr>
                                   <td width="80%" class="purchase_item"><span class="f-fallback">{{account}}</span></td>
@@ -482,7 +489,9 @@
                                     <p class="f-fallback purchase_total">{{commaFormat total}}</p>
                                   </td>
                                 </tr>
-                                <tr><td></td></tr>
+																<tr class="blank_row">
+																		<td colspan="3"></td>
+																</tr>
                                 <tr>
                                   <td width="80%" class="purchase_footer" valign="middle">
                                     <p class="f-fallback purchase_total purchase_total--label">Net Profit</p>
