@@ -462,33 +462,42 @@
                                     <p class="f-fallback"> 2019</p>
                                   </th>
                                 </tr>
-                                {{#each income}}
+                                {{#each data.Tags}}
+                                {{#if_eq this.Name "Income"}}
+                                {{#each this.Accounts}}
                                 <tr>
-                                  <td width="80%" class="purchase_item"><span class="f-fallback">{{account}}</span></td>
-                                  <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{commaFormat amount}}</span></td>
+                                  <td width="80%" class="purchase_item"><span class="f-fallback">{{Account}}</span></td>
+                                  blah
+                                  <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{creditCommaFormat Amount}}</span></td>
                                 </tr>
                                 {{/each}}
                                 <tr>
                                   <td width="80%" class="purchase_item"><span class="f-fallback"></span></td>
                                   <td width="20%" class="purchase_footer" valign="middle">
-                                    <p class="f-fallback purchase_total">{{commaFormat total}}</p>
+                                    <p class="f-fallback purchase_total">{{creditCommaFormat Total}}</p>
                                   </td>
                                 </tr>
+                                {{/if_eq}}
+                                {{/each}}
 																<tr class="blank_row">
 																		<td colspan="3"></td>
 																</tr>
-                                {{#each expense}}
+                                {{#each data.Tags}}
+                                {{#if_eq this.Name "Expenses"}}
+                                {{#each this.Accounts}}
                                 <tr>
-                                  <td width="80%" class="purchase_item"><span class="f-fallback">{{account}}</span></td>
-                                  <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{commaFormat amount}}</span></td>
+                                  <td width="80%" class="purchase_item"><span class="f-fallback">{{Account}}</span></td>
+                                  <td class="align-right" width="20%" class="purchase_item"><span class="f-fallback">{{commaFormat Amount}}</span></td>
                                 </tr>
                                 {{/each}}
                                 <tr>
                                   <td width="80%" class="purchase_item"><span class="f-fallback"></span></td>
                                   <td width="20%" class="purchase_footer" valign="middle">
-                                    <p class="f-fallback purchase_total">{{commaFormat total}}</p>
+                                    <p class="f-fallback purchase_total">{{commaFormat Total}}</p>
                                   </td>
                                 </tr>
+                                {{/if_eq}}
+                                {{/each}}
 																<tr class="blank_row">
 																		<td colspan="3"></td>
 																</tr>
@@ -497,7 +506,7 @@
                                     <p class="f-fallback purchase_total purchase_total--label">Net Profit</p>
                                   </td>
                                   <td width="20%" class="purchase_footer" valign="middle">
-                                    <p class="f-fallback purchase_total">{{commaFormat total}}</p>
+                                    <p class="f-fallback purchase_total">{{creditCommaFormat data.Profit}}</p>
                                   </td>
                                 </tr>
                               </table>
