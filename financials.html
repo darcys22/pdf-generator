@@ -505,7 +505,11 @@
                                     <p class="f-fallback purchase_total purchase_total--label">Net Profit</p>
                                   </td>
                                   <td width="20%" class="purchase_footer" valign="middle">
-                                    <p class="f-fallback purchase_total">{{creditCommaFormat data.Profit}}</p>
+                                  {{#each data.Tags}}
+                                  {{#if_eq this.Name "P&L"}}
+                                    <p class="f-fallback purchase_total">{{creditCommaFormat Amount}}</p>
+                                  {{/if_eq}}
+                                  {{/each}}
                                   </td>
                                 </tr>
                               </table>
